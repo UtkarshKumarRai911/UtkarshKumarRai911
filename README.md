@@ -1,16 +1,16 @@
-## Hi there 👋
+# Hi, I'm Utkarsh Kumar Rai 👋
 
-<!--
-**UtkarshKumarRai911/UtkarshKumarRai911** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+## About Me
+- 🎓 Interested in Machine Learning and Deep Learning
+- 💻 Languages: Python, C/C++,R
+- 🌱 Currently learning Open Source contribution
+- 🚀 Looking to contribute to open source
 
-Here are some ideas to get you started:
+## Skills
+- Machine Learning | Deep Learning | Data Science
+- Python | C | C++
+- Git | GitHub
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+## Goals
+- Contribute to open source projects
+- Build real-world open source projects
