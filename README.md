@@ -1,8 +1,8 @@
 <h1 align="center">Hi, I'm Utkarsh Kumar Rai 👋</h1>
 
 <p align="center">
-  <b>B.Tech EEE @ ABV-IIITM Gwalior &nbsp;|&nbsp; ML Engineer &nbsp;|&nbsp; SDE</b><br/>
-  <i>Building systems at the intersection of deep learning and scalable software</i>
+  <b>B.Tech EEE @ ABV-IIITM Gwalior &nbsp;|&nbsp; SDE &nbsp;|&nbsp; ML Engineer</b><br/>
+  <i>Building production-grade systems — distributed engines, in-memory stores, and deep learning pipelines</i>
 </p>
 
 <p align="center">
@@ -17,15 +17,15 @@
   </a>
 </p>
 
-
 ---
 
 ## 🚀 About Me
 
 - 🎓 &nbsp;3rd year B.Tech student at **ABV-IIITM Gwalior** (EEE, 2027)
-- 🔭 &nbsp;Built a **Visual Product Search Engine** — ViT-B/16 + ArcFace + FAISS, 87.17% Recall@10 over 120K images
-- 🛠️ &nbsp;Interested in **ML Systems**, **Computer Vision**, and **Backend Engineering**
-- 💡 &nbsp;Solved **300+ problems** on LeetCode & GeeksforGeeks (DSA: arrays, graphs, DP, trees)
+- ⚡ &nbsp;Built **ParaQuery** — distributed SQL engine, 1.70× speedup over single-node on 2M rows via gRPC
+- 🗄️ &nbsp;Built **Mini-Redis** — TCP server, RESP protocol, AOF persistence, 30K+ ops/sec, 48 unit tests
+- 🔍 &nbsp;Built **Visual Search Engine** — ViT-B/16 + ArcFace + FAISS, 87.17% Recall@10 over 120K images
+- 💡 &nbsp;Solved **200+ problems** on LeetCode (C++) — DP, Binary Search, Hash Table, Divide & Conquer
 - 📫 &nbsp;Reach me at **utkarshkumarrai2005@gmail.com**
 
 ---
@@ -36,6 +36,14 @@
 ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
 ![C++](https://img.shields.io/badge/C++-00599C?style=flat-square&logo=c%2B%2B&logoColor=white)
 ![C](https://img.shields.io/badge/C-A8B9CC?style=flat-square&logo=c&logoColor=black)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black)
+
+#### Backend & Systems
+![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white)
+![gRPC](https://img.shields.io/badge/gRPC-244c5a?style=flat-square&logo=grpc&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
+![REST API](https://img.shields.io/badge/REST_API-FF6B35?style=flat-square)
 
 #### ML / Deep Learning
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white)
@@ -47,46 +55,50 @@
 ![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=flat-square&logo=opencv&logoColor=white)
 ![FAISS](https://img.shields.io/badge/FAISS-0467DF?style=flat-square&logo=meta&logoColor=white)
 
-#### Deployment & Tools
+#### Tools & Deployment
 ![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![Git](https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white)
+![Prometheus](https://img.shields.io/badge/Prometheus-E6522C?style=flat-square&logo=prometheus&logoColor=white)
+![Grafana](https://img.shields.io/badge/Grafana-F46800?style=flat-square&logo=grafana&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=jupyter&logoColor=white)
 
 ---
 
 ## 📌 Featured Projects
 
+### ⚡ [ParaQuery — Distributed SQL Query Engine](https://github.com/UtkarshKumarRai911/ParaQuery)
+> Distributed SQL engine processing 2M+ rows across 3 parallel worker nodes via gRPC streaming. Predicate pushdown, MapReduce-style aggregation, fault recovery. Architected after AWS Athena/BigQuery.
+
+- **1.70× speedup** over single-node execution on 2M row dataset
+- **~570K rows/sec** throughput with 3 parallel workers on local Docker
+- **Predicate pushdown** — non-matching rows discarded before memory (~100MB → ~200 bytes on wire)
+- **Automatic fault recovery** — heartbeat detection, partition reassignment on worker failure
+
+`Node.js` `gRPC` `Docker` `PostgreSQL` `MinIO` `Prometheus` `React`
+
+---
+
+### 🗄️ [Mini-Redis — In-Memory Key-Value Store](https://github.com/UtkarshKumarRai911/mini-redis)
+> Redis clone built from scratch — TCP server, custom RESP wire protocol, AOF persistence, LRU eviction, MULTI/EXEC transactions, connection pool. No Redis libraries used.
+
+- **30,000+ ops/sec** throughput with 10 concurrent clients on localhost
+- **Thread-safe connection pool** using OS semaphores — eliminates TCP handshake overhead
+- **AOF persistence** — zero data loss on server restart, full state restored on startup
+- **48 passing unit tests** including 100-thread concurrency correctness tests
+
+`Python` `TCP Sockets` `Threading` `RESP Protocol`
+
+---
+
 ### 🔍 [Visual Product Search Engine](https://github.com/UtkarshKumarRai911/visual-search-engine)
 > Fine-tuned ViT-B/16 + ArcFace metric learning on Stanford Online Products (120K images). FAISS HNSW index for sub-millisecond retrieval. Deployed as a Streamlit web app.
 
-- **87.17% Recall@10** on 60,502-image test set
+- **87.17% Recall@10** on 60,502-image test set — 17 pp above ResNet50 baseline
 - **~0.2ms** FAISS search latency · **11× speedup** over brute-force
 - **~90–150ms** end-to-end query latency on GPU
 - Deployed on HuggingFace Spaces
 
 `PyTorch` `ViT` `ArcFace` `FAISS` `Streamlit` `HuggingFace`
-
----
-
-### 🏥 [Surgical Instrument Detection — YOLOv8](https://github.com/UtkarshKumarRai911/surgical-instrument-detection)
-> YOLOv8-based object detection for identifying surgical instruments in medical images.
-
-- Custom preprocessing pipeline: normalization, annotation parsing, augmentation
-- Evaluated with **mAP**, precision-recall curves, confusion matrices
-- Reusable inference pipeline for image and video input
-
-`Python` `PyTorch` `YOLOv8` `OpenCV`
-
----
-
-### 🎯 [Object Detection Pipeline — OpenCV](https://github.com/UtkarshKumarRai911/object-detection-pipeline)
-> Modular end-to-end pipeline for object localization and detection.
-
-- Clean separation of preprocessing, feature extraction, and inference
-- Reusable workflows supporting multiple detection architectures
-
-`Python` `OpenCV` `TensorFlow`
 
 ---
 
@@ -102,9 +114,9 @@
 
 ## 🏆 Achievements
 
-- 🧩 &nbsp;**300+ problems** solved — LeetCode & GeeksforGeeks
+- 🧩 &nbsp;**200+ problems** solved — LeetCode (C++) · DP, Binary Search, Hash Table, Divide & Conquer
 - 📐 &nbsp;**JEE Advanced 2023** — AIR 12,000 among 1.5+ lakh candidates
-- 🛒 &nbsp;**Flipkart Grid 6.0** — National-level software development challenge
+- 🛒 &nbsp;**Flipkart Grid 6.0** — Cleared Level 1, advanced to Level 2
 - 🌐 &nbsp;**Google Solution Challenge 2025** — Built solutions using Google technologies
 
 ---
